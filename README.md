@@ -12,8 +12,8 @@ To use functions of easierLua, replace FunctionNameHere with the function you wa
 easierLua.FunctionNameHere()
 ```
 
-# Additional Information
-Functions in easierLua do not use coroutines or spawns to [multi-thread](https://devforum.roblox.com/t/help-with-understanding-threads-and-multithreading/700243).                  Add them if your script requires multi-threading.
+## Additional Information
+Functions in easierLua do not use coroutines or spawns to [multi-thread](https://devforum.roblox.com/t/help-with-understanding-threads-and-multithreading/700243).
 
 # Other Links
 [> Gitbook](https://treee.gitbook.io/easierlua/)
