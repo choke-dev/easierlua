@@ -1,3 +1,4 @@
+-- Disable errors of this type in Visual Studio Code:
 ---@diagnostic disable: undefined-global, undefined-field, deprecated
 
 -- Ensure compatibility with other exploits if not executed on Synapse:
@@ -176,4 +177,4 @@ if not syn then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBett
     end
 
 -- Return the table with all the functions:
-return easierLua
+return easierLua 
