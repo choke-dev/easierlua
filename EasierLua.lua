@@ -1,4 +1,3 @@
--- Disable errors of this type in Visual Studio Code:
 ---@diagnostic disable: undefined-global, undefined-field, deprecated
 
 -- Ensure compatibility with other exploits if not executed on Synapse:
