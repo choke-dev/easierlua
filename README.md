@@ -19,9 +19,21 @@ Functions in easierLua do not use coroutines or spawns to [multi-thread](https:/
 
 ## Environment
 ### > LocalPlayer
-  MoveToPosition
+MoveToPosition
 ```lua
 easierLua.MoveToPosition(<string> Position)
 ```
 Teleports the LocalPlayer to <string> Position.
+
+GetPositionOfPlayer
+```
+easierLua.GetPositionOfPlayer(<instance> player)
+```
+
+GetRootOfPlayer
+```lua
+easierLua.getRoot(<instance> character, <string> part)
+```
+Returns the <instance> character's HumanoidRootPart, Torso, or UpperTorso.
+
 
