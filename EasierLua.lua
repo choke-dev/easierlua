@@ -1,18 +1,17 @@
-if not syn then
-    loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
-end
-    
+---@diagnostic disable: undefined-global, undefined-field, deprecated
 
----@diagnostic disable: undefined-global, undefined-field
+-- Ensure compatibility with other exploits if not executed on Synapse:
+if not syn then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))() end local easierLua = {}
 
-    local easierLua = {}
-
+-- Important functions that are required for other functions to work must be put here:
     easierLua.GetRootOfPlayer = function(char)
         local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
         return rootPart
     end
-    -- Proper arrangement
 
+-- Load all functions of easierLua:
+
+-- Environment: ClickDetectors
     easierLua.GetChildClickDetectors = function(instance, returnName)
         local found = {}
         for i,v in pairs(instance:GetChildren()) do
@@ -93,6 +92,8 @@ end
             end
         end 
     end
+
+-- Players
     easierLua.GetPositionOfPlayer = function(player)
         return easierLua.GetRootOfPlayer(player).Position
     end
@@ -100,6 +101,8 @@ end
         local c = string.split(Coordinates, ",")
         easierLua.GetRootOfPlayer(game.Players.LocalPlayer.Character).CFrame = CFrame.new(tonumber(c[1]), tonumber(c[2]), tonumber(c[3]))
     end
+
+-- Instances
     easierLua.GetChildrenOfClass = function(instance, class, returnName)
         local found = {}
         for i,v in pairs(instance:GetChildren()) do
@@ -152,6 +155,8 @@ end
             end
         end 
     end
+
+-- Miscellaneous
     easierLua.promptDiscordInvite = function(inviteLink)
         syn.request({
             Url = "http://127.0.0.1:6463/rpc?v=1",
@@ -170,4 +175,5 @@ end
          })
     end
 
-    return easierLua
+-- Return the table with all the functions:
+return easierLua
