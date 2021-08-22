@@ -1,6 +1,6 @@
-```lua
-"easierLua" v0.2 : treee#0001 & choke#3588
-```
+# easierLua - making games easier to exploit
+- treee#0001
+- choke#3588
 
 ## How to use easierLua
 Add this line of code to load **easierLua**.
