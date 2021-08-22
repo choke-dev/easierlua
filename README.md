@@ -1,4 +1,4 @@
-# easierLua - making games easier to exploit
+# easierLua - *making games easier to exploit*
 - treee#0001
 - choke#3588
 
