@@ -1,6 +1,6 @@
 # easierLua > v0.2
 
-> Credits
+- Credits
   - treee#0001
     - choke#3588
 
