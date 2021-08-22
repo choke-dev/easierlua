@@ -19,7 +19,7 @@ Functions in easierLua do not use coroutines or spawns to [multi-thread](https:/
 
 ## Environment
 ### > LocalPlayer
-MoveToPosition
+  MoveToPosition
 ```lua
 easierLua.MoveToPosition(<string> Position)
 ```
