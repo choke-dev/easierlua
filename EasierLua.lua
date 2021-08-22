@@ -1,3 +1,8 @@
+if not syn then
+    loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
+end
+    
+
 ---@diagnostic disable: undefined-global, undefined-field
 
     local easierLua = {}
