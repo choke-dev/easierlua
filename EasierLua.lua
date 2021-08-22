@@ -11,6 +11,20 @@ if not syn then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBett
 
 -- Load all functions of easierLua:
 
+-- Environment:
+    easierLua.GetGlobalVariablesInDescendantLocalScripts = function(instance)
+        local found = {}
+        for i,v in pairs(instance:GetDescendants()) do
+            if v:IsA("LocalScript") and getsenv(v) ~= {} then          
+              table.insert(found, getsenv(v)..", game."..v:GetFullName())
+                end
+            end 
+            return found
+        end
+
+
+
+
 -- Environment: ClickDetectors
     easierLua.GetChildClickDetectors = function(instance, returnName)
         local found = {}
