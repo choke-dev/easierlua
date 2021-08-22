@@ -15,25 +15,6 @@ easierLua.FunctionNameHere()
 ## Additional Information
 Functions in easierLua do not use coroutines or spawns to [multi-thread](https://devforum.roblox.com/t/help-with-understanding-threads-and-multithreading/700243).
 
-# Functions
-
-## Environment
-### > LocalPlayer
-MoveToPosition
-```lua
-easierLua.MoveToPosition(<string> Position)
-```
-Teleports the LocalPlayer to <string> Position.
-
-GetPositionOfPlayer
-```
-easierLua.GetPositionOfPlayer(<instance> player)
-```
-
-GetRootOfPlayer
-```lua
-easierLua.getRoot(<instance> character, <string> part)
-```
-Returns the <instance> character's HumanoidRootPart, Torso, or UpperTorso.
-
+# Links
+[> Gitbook with every function in easierLua](https://treee.gitbook.io/easierlua/)
 
