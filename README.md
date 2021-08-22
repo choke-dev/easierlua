@@ -16,5 +16,5 @@ easierLua.FunctionNameHere()
 Functions in easierLua do not use coroutines or spawns to [multi-thread](https://devforum.roblox.com/t/help-with-understanding-threads-and-multithreading/700243).
 
 # Links
-[> Gitbook with every function in easierLua](https://treee.gitbook.io/easierlua/)
+[> Gitbook with every function in easierLua](https://treee-1.gitbook.io/easierlua/)
 
