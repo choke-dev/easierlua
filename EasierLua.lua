@@ -5,7 +5,7 @@ if not syn and not _G.CompatibilityEnabled then
 	warn("Non-synapse exploit detected! Intializing Compatibility...")
 	loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
         _G.CompatibilityEnabled = true
-	end 
+end 
 
 local easierLua = {}
 
