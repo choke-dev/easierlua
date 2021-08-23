@@ -1,11 +1,7 @@
 ---@diagnostic disable: undefined-global, undefined-field, deprecated
 
 -- Ensure compatibility with other exploits if not executed on Synapse:
-if not syn and not _G.CompatibilityEnabled then
-	warn("Non-synapse exploit detected! Intializing Compatibility...")
-	loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
-        _G.CompatibilityEnabled = true
-end 
+if not syn and not getgenv().CompatibilityEnabled then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))() getgenv().CompatibilityEnabled = true end 
 
 local easierLua = {}
 
