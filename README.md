@@ -15,6 +15,13 @@ easierLua.FunctionNameHere()
 ## Additional Information
 Functions in easierLua do not use coroutines or spawns to [multi-thread](https://devforum.roblox.com/t/help-with-understanding-threads-and-multithreading/700243).
 
+## Changelog
+21/8/2021, v0.3
+- Get() functions now return Instances instead of strings.
+- Optimized code
+- Fixed crashes from compatibility script
+- Globals are now using getgenv() to prevent detection from games
+
 # Links
 [> Documentation](https://treee-1.gitbook.io/easierlua/)
 
