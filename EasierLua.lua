@@ -53,7 +53,7 @@ if not syn then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBett
                 end
             end 
         end
-        easierLua.GetDescendantClickDetectors = function(instance, returnName)
+        easierLua.GetDescendantClickDetectors = function(instance)
             local found = {}
             for i,v in pairs(instance:GetDescendants()) do
                 if v:IsA("ClickDetector") then
