@@ -12,50 +12,26 @@ if not syn then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBett
 -- Load all functions of easierLua:
 
 -- Environment:
-    easierLua.GetGlobalVariablesInDescendantLocalScripts = function(instance)
-        local found = {}
-        for i,v in pairs(instance:GetDescendants()) do
-            if v:IsA("LocalScript") and getsenv(v) ~= {} then          
-              table.insert(found, getsenv(v)..", game."..v:GetFullName())
-                end
-            end 
-            return found
-        end
-
-
-
 
 -- Environment: ClickDetectors
     easierLua.GetChildClickDetectors = function(instance, returnName)
         local found = {}
         for i,v in pairs(instance:GetChildren()) do
             if v:IsA("ClickDetector") then
-                if returnName == true then
-                table.insert(found, v.Name)
-                elseif returnName == false then
-                    table.insert(found, "game."..v:GetFullName())
-                else
-                    return nil
-                end
+                table.insert(found, v)
+            end
+                return found
             end 
         end
-        return found
-    end
     easierLua.GetClickDetectorsWithinDistance = function(instance, distance, returnName)
         local found = {}
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ClickDetector") and (instance.Position - v.Parent.Position).Magnitude <= distance then
-                if returnName == true then
-                table.insert(found, v.Name)
-                elseif returnName == false then
-                    table.insert(found, "game."..v:GetFullName())
-                else
-                    return nil
+                    table.insert(found, v)
                 end
-            end 
-        end
-        return found
-    end
+                    return found
+                end
+            end
     easierLua.fireClickDetectorsWithinDistance = function(instance, distance)
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ClickDetector") and (instance.Position - v.Parent.Position).Magnitude <= distance then
@@ -81,17 +57,12 @@ if not syn then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBett
             local found = {}
             for i,v in pairs(instance:GetDescendants()) do
                 if v:IsA("ClickDetector") then
-                    if returnName == true then
-                    table.insert(found, v.Name)
-                    elseif returnName == false then
-                        table.insert(found, "game."..v:GetFullName())
-                    else
-                        return nil
+                    table.insert(found, v)
                     end
+                    return found
                 end 
             end
-            return found
-        end
+
     easierLua.fireDescendantClickDetectors = function(instance)
         for i,v in pairs(instance:GetDescendants()) do
             if v:IsA("ClickDetector") then
