@@ -16,15 +16,6 @@ local easierLua = {}
 -- Environment:
 
 -- Environment: ClickDetectors
-    easierLua.GetChildClickDetectors = function(instance)
-        local found = {}
-        for i,v in pairs(instance:GetChildren()) do
-            if v:IsA("ClickDetector") then
-                table.insert(found, v)
-            end
-        end 
-        return found
-    end
     easierLua.GetClickDetectorsWithinDistance = function(instance, distance)
         local found = {}
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
@@ -55,15 +46,6 @@ local easierLua = {}
                 end
             end 
         end
-        easierLua.GetDescendantClickDetectors = function(instance)
-            local found = {}
-            for i,v in pairs(instance:GetDescendants()) do
-                if v:IsA("ClickDetector") then
-                    table.insert(found, v)
-                    end
-                end
-                return found
-            end
 
     easierLua.fireDescendantClickDetectors = function(instance)
         for i,v in pairs(instance:GetDescendants()) do
@@ -114,7 +96,7 @@ local easierLua = {}
         local found = {}
         for i,v in pairs(instance:GetDescendants()) do
             if v:IsA(tostring(class)) then
-                    table.insert(found, "game."..v:GetFullName())
+                    table.insert(found, v)
                 end
             end
             return found
