@@ -2,7 +2,7 @@
 
 -- Ensure compatibility with other exploits if not executed on Synapse:
 if not syn and not _G.CompatibilityEnabled then
-		loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
+	loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
         _G.CompatibilityEnabled = true
 	end 
 
