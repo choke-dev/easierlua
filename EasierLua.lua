@@ -1,7 +1,12 @@
 ---@diagnostic disable: undefined-global, undefined-field, deprecated
 
 -- Ensure compatibility with other exploits if not executed on Synapse:
-if not syn then loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))() end local easierLua = {}
+if not syn and not _G.CompatibilityEnabled then
+		loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
+        _G.CompatibilityEnabled = true
+	end 
+
+local easierLua = {}
 
 -- Important functions that are required for other functions to work must be put here:
     easierLua.GetRootOfPlayer = function(char)
