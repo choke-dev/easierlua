@@ -16,24 +16,24 @@ local easierLua = {}
 -- Environment:
 
 -- Environment: ClickDetectors
-    easierLua.GetChildClickDetectors = function(instance, returnName)
+    easierLua.GetChildClickDetectors = function(instance)
         local found = {}
         for i,v in pairs(instance:GetChildren()) do
             if v:IsA("ClickDetector") then
                 table.insert(found, v)
             end
-                return found
-            end 
-        end
-    easierLua.GetClickDetectorsWithinDistance = function(instance, distance, returnName)
+        end 
+        return found
+    end
+    easierLua.GetClickDetectorsWithinDistance = function(instance, distance)
         local found = {}
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ClickDetector") and (instance.Position - v.Parent.Position).Magnitude <= distance then
                     table.insert(found, v)
                 end
-                    return found
-                end
             end
+            return found
+        end
     easierLua.fireClickDetectorsWithinDistance = function(instance, distance)
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ClickDetector") and (instance.Position - v.Parent.Position).Magnitude <= distance then
@@ -61,8 +61,8 @@ local easierLua = {}
                 if v:IsA("ClickDetector") then
                     table.insert(found, v)
                     end
-                    return found
-                end 
+                end
+                return found
             end
 
     easierLua.fireDescendantClickDetectors = function(instance)
@@ -90,21 +90,15 @@ local easierLua = {}
     end
 
 -- Instances
-    easierLua.GetChildrenOfClass = function(instance, class, returnName)
+    easierLua.GetChildrenOfClass = function(instance, class)
         local found = {}
         for i,v in pairs(instance:GetChildren()) do
             if v:IsA(tostring(class)) then
-                if returnName == true then
-                table.insert(found, v.Name)
-                elseif returnName == false then
-                    table.insert(found, "game."..v:GetFullName())
-                else
-                    return nil
+                    table.insert(found, v)
                 end
-            end 
+            end
+            return found
         end
-        return found
-    end
     easierLua.ClearAllChildrenOfClass = function(instance, class, storeInMemory)
         for i,v in pairs(instance:GetChildren()) do
             if v:IsA(tostring(class)) then
@@ -116,21 +110,15 @@ local easierLua = {}
             end
         end 
     end
-    easierLua.GetDescendantsOfClass = function(instance, class, returnName)
+    easierLua.GetDescendantsOfClass = function(instance, class)
         local found = {}
         for i,v in pairs(instance:GetDescendants()) do
             if v:IsA(tostring(class)) then
-                if returnName == true then
-                table.insert(found, v.Name)
-                elseif returnName == false then
                     table.insert(found, "game."..v:GetFullName())
-                else
-                    return nil
                 end
-            end 
+            end
+            return found
         end
-        return found
-    end
     easierLua.ClearAllDescendantsOfClass = function(instance, class, storeInMemory)
         for i,v in pairs(instance:GetDescendants()) do
             if v:IsA(tostring(class)) then
