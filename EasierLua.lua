@@ -16,48 +16,50 @@ local easierLua = {}
 -- Environment:
 
 -- Environment: ClickDetectors
-    easierLua.GetClickDetectorsWithinDistance = function(instance, distance)
+    easierLua.GetClickDetectorsWithinDistance = function(instance, distance, match)
         local found = {}
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ClickDetector") and (instance.Position - v.Parent.Position).Magnitude <= distance then
+                if match == nil then
+                    table.insert(found, v)
+                elseif match ~= nil and v.Name:match(match) then
                     table.insert(found, v)
                 end
             end
-            return found
         end
-    easierLua.fireClickDetectorsWithinDistance = function(instance, distance)
+            return found
+    end
+    easierLua.fireClickDetectorsWithinDistance = function(instance, distance, match)
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ClickDetector") and (instance.Position - v.Parent.Position).Magnitude <= distance then
-                fireclickdetector(v)
+                if match == nil then
+                    fireclickdetector(v)
+                elseif match ~= nil and v.Name:match(match) then
+                    fireclickdetector(v)
                 end
-            end     
-        end
-    easierLua.fireChildClickDetectors = function(instance)
-        for i,v in pairs(instance:GetChildren()) do
-            if v:IsA("ClickDetector") then
-                fireclickdetector(v)
-                end
-            end     
-        end
-    easierLua.fireChildClickDetectorsContainingName = function(instance, string)
-        for i,v in pairs(instance:GetChildren()) do
-            if v:IsA("ClickDetector") and tostring(v.Name):match(tostring(string)) then
-                fireclickdetector(v)
-                end
-            end 
-        end
-
-    easierLua.fireDescendantClickDetectors = function(instance)
-        for i,v in pairs(instance:GetDescendants()) do
-            if v:IsA("ClickDetector") then
-                fireclickdetector(v)
             end
-        end 
+        end     
     end
-    easierLua.fireDescendantClickDetectorsContainingName = function(instance, string)
+    easierLua.fireChildClickDetectors = function(instance, match)
+        for i,v in pairs(instance:GetChildren()) do
+            if v:IsA("ClickDetector") then
+                if match == nil then
+                    fireclickdetector(v)
+                elseif match ~= nil and v.Name:match(match) then
+                    fireclickdetector(v)
+                end
+            end
+        end     
+    end
+
+    easierLua.fireDescendantClickDetectors = function(instance, match)
         for i,v in pairs(instance:GetDescendants()) do
-            if v:IsA("ClickDetector") and tostring(v.Name):match(tostring(string)) then
-                fireclickdetector(v)
+            if v:IsA("ClickDetector") then
+                if match == nil then
+                    fireclickdetector(v)
+                elseif match ~= nil and v.Name:match(match) then
+                    fireclickdetector(v)
+                end
             end
         end 
     end
@@ -66,21 +68,25 @@ local easierLua = {}
     easierLua.GetPositionOfPlayer = function(player)
         return easierLua.GetRootOfPlayer(player).Position
     end
-    easierLua.MoveToPosition = function(Coordinates)
+    easierLua.MoveTo = function(Coordinates)
         local c = string.split(Coordinates, ",")
         easierLua.GetRootOfPlayer(game.Players.LocalPlayer.Character).CFrame = CFrame.new(tonumber(c[1]), tonumber(c[2]), tonumber(c[3]))
     end
 
 -- Instances
-    easierLua.GetChildrenOfClass = function(instance, class)
+    easierLua.GetChildrenOfClass = function(instance, class, match)
         local found = {}
         for i,v in pairs(instance:GetChildren()) do
             if v:IsA(tostring(class)) then
+                if match == nil then
+                    table.insert(found, v)
+                elseif match ~= nil and v.Name:match(match) then
                     table.insert(found, v)
                 end
             end
-            return found
         end
+            return found
+    end
     easierLua.ClearAllChildrenOfClass = function(instance, class, storeInMemory)
         for i,v in pairs(instance:GetChildren()) do
             if v:IsA(tostring(class)) then
@@ -92,27 +98,30 @@ local easierLua = {}
             end
         end 
     end
-    easierLua.GetDescendantsOfClass = function(instance, class)
+    easierLua.GetDescendantsOfClass = function(instance, class, match)
         local found = {}
         for i,v in pairs(instance:GetDescendants()) do
-            if v:IsA(tostring(class)) then
-                    table.insert(found, v)
+            if v:IsA(class) then
+                    if match == nil then
+                        table.insert(found, v)
+                    elseif match ~= nil and v.Name:match(match) then
+                        table.insert(found, v)
+                    end
                 end
             end
             return found
         end
     easierLua.ClearAllDescendantsOfClass = function(instance, class, storeInMemory)
         for i,v in pairs(instance:GetDescendants()) do
-            if v:IsA(tostring(class)) then
+            if v:IsA(class) then
                 if storeInMemory == true then
                     v.Parent = nil
                 else
                     v:Destroy()
-                end 
+                end
             end
         end 
     end
-
 -- Miscellaneous
     easierLua.promptDiscordInvite = function(inviteLink)
         syn.request({
