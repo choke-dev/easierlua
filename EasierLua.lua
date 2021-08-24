@@ -77,7 +77,7 @@ local easierLua = {}
     easierLua.GetChildrenOfClass = function(instance, class, match)
         local found = {}
         for i,v in pairs(instance:GetChildren()) do
-            if v:IsA(tostring(class)) then
+            if v:IsA(class) then
                 if match == nil then
                     table.insert(found, v)
                 elseif match ~= nil and v.Name:match(match) then
@@ -89,7 +89,7 @@ local easierLua = {}
     end
     easierLua.ClearAllChildrenOfClass = function(instance, class, storeInMemory)
         for i,v in pairs(instance:GetChildren()) do
-            if v:IsA(tostring(class)) then
+            if v:IsA(class) then
                 if storeInMemory == true then
                     v.Parent = nil
                 else
